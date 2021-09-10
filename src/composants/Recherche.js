@@ -1,7 +1,21 @@
 import React, { Component } from "react";
 import { Select, Button } from "semantic-ui-react";
+import "./Recherche.css";
 
 export class Recherche extends Component {
+  state = {
+    dpt: "",
+    type: "",
+  };
+
+  onDptChange = (e, data) => {
+    this.setState({ dpt: data.value });
+  };
+
+  onTypeChange = (e, data) => {
+    this.setState({ type: data.value });
+  };
+
   render() {
     const optionsDpt = [
       { value: "44", key: "44", text: "Loire Atlantique" },
@@ -27,13 +41,29 @@ export class Recherche extends Component {
 
     return (
       <div className="recherche">
-        <Select placeholder="Choisissez un département" options={optionsDpt} />
+        <Select
+          placeholder="Choisissez un département"
+          value={this.state.dpt}
+          options={optionsDpt}
+          onChange={this.onDptChange}
+        />
         <Select
           placeholder="Choisissez une administration"
           options={optionsType}
+          value={this.state.type}
+          onChange={this.onTypeChange}
         />
-        <Button primary> Lancer la recherche </Button>
-        <Button secondary> Vider la recherche </Button>
+        <Button
+          primary
+          onClick={() => this.props.onSearch(this.state.dpt, this.state.type)}
+        >
+          {" "}
+          Lancer la recherche{" "}
+        </Button>
+        <Button secondary onClick={() => this.props.onEmpty()}>
+          {" "}
+          Vider la recherche{" "}
+        </Button>
       </div>
     );
   }

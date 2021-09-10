@@ -1,0 +1,8 @@
+.recherche {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}

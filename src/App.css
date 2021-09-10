@@ -3,13 +3,20 @@ body {
   padding: 0;
   font-family: sans-serif;
   text-align: center;
-  background: #27869e;
 }
 .app {
-  width: 920px;
+  background: #27869e;
+  padding-top: 5rem;
+  width: 55%;
   margin: 0 auto;
 }
 
-#root {
-  background: #27869e;
+.bold {
+  font-weight: 800;
+}
+
+.width {
+  width: 55%;
+  margin: 0 auto;
+  width: fit-content;
 }
